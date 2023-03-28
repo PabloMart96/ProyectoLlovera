@@ -28,11 +28,11 @@ button.addEventListener('click', () => {
         navigator.geolocation.getCurrentPosition(position => {
             lon = position.coords.longitude;
             lat = position.coords.latitude;
+            let preActual, pre4, pre8;
 
             document.getElementById('cards').style.visibility = "visible";
 
             const url = `https://api.weatherapi.com/v1/forecast.json?key=61017b0b92844917b28110209232803&q=${lat},${lon}&days=2&lang=es`;
-            console.log(url)
 
             fetch(url)
                 .then(response => response.json())
@@ -50,6 +50,9 @@ button.addEventListener('click', () => {
 
                     hour1.textContent = `${hour}:00`
 
+                    preActual = data.current.precip_mm;
+
+
                     let hour4 = hour + 4;
 
                     if (hour4 > 23) {
@@ -63,6 +66,8 @@ button.addEventListener('click', () => {
 
                         hour2.textContent = `${hour4}:00`
 
+                        pre4 = data.forecast.forecastday[1].hour[hour4].precip_mm;
+
 
                     } else {
                         temp = Math.round(data.forecast.forecastday[0].hour[hour4].temp_c)
@@ -71,6 +76,8 @@ button.addEventListener('click', () => {
                         img2.src = data.forecast.forecastday[0].hour[hour4].condition.icon;
 
                         hour2.textContent = `${hour4}:00`
+
+                        pre4 = data.forecast.forecastday[0].hour[hour4].precip_mm;
 
                     }
 
@@ -89,6 +96,8 @@ button.addEventListener('click', () => {
 
                         hour3.textContent = `${hour8}:00`;
 
+                        pre8 = pre4 = data.forecast.forecastday[1].hour[hour8].precip_mm;
+
                     } else {
 
                         temp = Math.round(data.forecast.forecastday[0].hour[hour8].temp_c);
@@ -97,12 +106,23 @@ button.addEventListener('click', () => {
                         img3.src = data.forecast.forecastday[0].hour[hour8].condition.icon;
 
                         hour3.textContent = `${hour8}:00`;
+
+                        pre8 = pre4 = data.forecast.forecastday[0].hour[hour8].precip_mm;
                     }
 
 
+                    if (preActual >= 0.1 || pre4 >= 0.1 || pre8 >= 0.1) {
+                        console.log('llovera en las proximas horas...')
+                    } else {
+                        console.log('No llovera en las proximas horas...')
+                    }
 
 
                 })
+
+
+
+
 
 
         })
