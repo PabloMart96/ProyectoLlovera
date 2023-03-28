@@ -22,12 +22,16 @@ button.addEventListener('click', () => {
     let hour2 = document.getElementById('hour4');
     let hour3 = document.getElementById('hour8');
 
+    let llovera = document.getElementById('llovera');
+
 
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
-            lon = position.coords.longitude;
-            lat = position.coords.latitude;
+            // lon = position.coords.longitude;
+            // lat = position.coords.latitude;
+            lon = -0.1257400
+            lat = 51.5085300
             let preActual, pre4, pre8;
 
             document.getElementById('cards').style.visibility = "visible";
@@ -112,9 +116,9 @@ button.addEventListener('click', () => {
 
 
                     if (preActual >= 0.1 || pre4 >= 0.1 || pre8 >= 0.1) {
-                        console.log('llovera en las proximas horas...')
+                        llovera.textContent = 'llovera en las proximas horas...'
                     } else {
-                        console.log('No llovera en las proximas horas...')
+                        llovera.textContent = 'No llovera en las proximas horas...'
                     }
 
 
