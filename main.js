@@ -1,137 +1,121 @@
-"use strict"
+"use strict";
 
-const button = document.getElementById('button');
+const button = document.getElementById("button");
 
-document.getElementById('cards').style.visibility = "hidden";
+document.getElementById("cards").style.visibility = "hidden";
 
-button.addEventListener('click', () => {
+button.addEventListener("click", () => {
+  let lon, lat;
 
-    let lon, lat;
+  let city = document.getElementById("city");
 
-    let city = document.getElementById('city');
+  let temp1 = document.getElementById("temp1");
+  let temp2 = document.getElementById("temp2");
+  let temp3 = document.getElementById("temp3");
 
-    let temp1 = document.getElementById('temp1');
-    let temp2 = document.getElementById('temp2');
-    let temp3 = document.getElementById('temp3');
+  let img1 = document.getElementById("img1");
+  let img2 = document.getElementById("img2");
+  let img3 = document.getElementById("img3");
 
-    let img1 = document.getElementById('img1');
-    let img2 = document.getElementById('img2');
-    let img3 = document.getElementById('img3');
+  let weatherText = document.getElementById("weatherText");
+  let weatherText2 = document.getElementById("weatherText2");
+  let weatherText3 = document.getElementById("weatherText3");
 
-    let hour1 = document.getElementById('hour');
-    let hour2 = document.getElementById('hour4');
-    let hour3 = document.getElementById('hour8');
+  let hour1 = document.getElementById("hour");
+  let hour2 = document.getElementById("hour4");
+  let hour3 = document.getElementById("hour8");
 
-    let llovera = document.getElementById('llovera');
+  let llovera = document.getElementById("llovera");
 
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      lon = position.coords.longitude;
+      lat = position.coords.latitude;
+      // lon = -0.12574;
+      // lat = 51.50853;
+      let preActual, pre4, pre8;
 
+      document.getElementById("cards").style.visibility = "visible";
 
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position => {
-            // lon = position.coords.longitude;
-            // lat = position.coords.latitude;
-            lon = -0.1257400
-            lat = 51.5085300
-            let preActual, pre4, pre8;
+      const url = `https://api.weatherapi.com/v1/forecast.json?key=61017b0b92844917b28110209232803&q=${lat},${lon}&days=2&lang=es`;
 
-            document.getElementById('cards').style.visibility = "visible";
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          city.textContent = data.location.name;
 
-            const url = `https://api.weatherapi.com/v1/forecast.json?key=61017b0b92844917b28110209232803&q=${lat},${lon}&days=2&lang=es`;
+          let date = new Date(data.current.last_updated_epoch * 1000);
+          let hour = date.getHours();
 
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
+          let temp = Math.round(data.current.temp_c);
+          temp1.textContent = `${temp}ºC`;
 
-                    city.textContent = data.location.name;
+          img1.src = data.current.condition.icon;
+          weatherText.textContent = data.current.condition.text;
+          hour1.textContent = `${hour}:00`;
 
-                    let date = new Date(data.current.last_updated_epoch * 1000);
-                    let hour = date.getHours();
+          preActual = data.current.precip_mm;
 
-                    let temp = Math.round(data.current.temp_c);
-                    temp1.textContent = `${temp}ºC`;
+          let hour4 = hour + 4;
 
-                    img1.src = data.current.condition.icon;
+          if (hour4 > 23) {
+            let aux = hour4 - 23;
+            hour4 = aux;
 
-                    hour1.textContent = `${hour}:00`
+            temp = Math.round(data.forecast.forecastday[1].hour[hour4].temp_c);
+            temp2.textContent = `${temp}ºC`;
 
-                    preActual = data.current.precip_mm;
+            img2.src = data.forecast.forecastday[1].hour[hour4].condition.icon;
+            weatherText.textContent =
+              data.forecast.forecastday[1].hour[hour4].condition.text;
+            hour2.textContent = `${hour4}:00`;
 
+            pre4 = data.forecast.forecastday[1].hour[hour4].precip_mm;
+          } else {
+            temp = Math.round(data.forecast.forecastday[0].hour[hour4].temp_c);
+            temp2.textContent = `${temp}ºC`;
 
-                    let hour4 = hour + 4;
+            img2.src = data.forecast.forecastday[0].hour[hour4].condition.icon;
+            weatherText2.textContent =
+              data.forecast.forecastday[0].hour[hour4].condition.text;
+            hour2.textContent = `${hour4}:00`;
 
-                    if (hour4 > 23) {
-                        let aux = hour4 - 23;
-                        hour4 = aux;
+            pre4 = data.forecast.forecastday[0].hour[hour4].precip_mm;
+          }
 
-                        temp = Math.round(data.forecast.forecastday[1].hour[hour4].temp_c)
-                        temp2.textContent = `${temp}ºC`;
+          let hour8 = hour4 + 4;
 
-                        img2.src = data.forecast.forecastday[1].hour[hour4].condition.icon;
+          if (hour8 > 23) {
+            let aux = hour8 - 23;
+            hour8 = aux;
 
-                        hour2.textContent = `${hour4}:00`
+            temp = Math.round(data.forecast.forecastday[1].hour[hour8].temp_c);
+            temp3.textContent = `${temp}ºC`;
 
-                        pre4 = data.forecast.forecastday[1].hour[hour4].precip_mm;
+            img3.src = data.forecast.forecastday[1].hour[hour8].condition.icon;
+            weatherText3.textContent =
+              data.forecast.forecastday[1].hour[hour8].condition.text;
+            hour3.textContent = `${hour8}:00`;
 
+            pre8 = pre4 = data.forecast.forecastday[1].hour[hour8].precip_mm;
+          } else {
+            temp = Math.round(data.forecast.forecastday[0].hour[hour8].temp_c);
+            temp3.textContent = `${temp}ºC`;
 
-                    } else {
-                        temp = Math.round(data.forecast.forecastday[0].hour[hour4].temp_c)
-                        temp2.textContent = `${temp}ºC`;
+            img3.src = data.forecast.forecastday[0].hour[hour8].condition.icon;
+            weatherText3.textContent =
+              data.forecast.forecastday[0].hour[hour8].condition.text;
+            hour3.textContent = `${hour8}:00`;
 
-                        img2.src = data.forecast.forecastday[0].hour[hour4].condition.icon;
+            pre8 = pre4 = data.forecast.forecastday[0].hour[hour8].precip_mm;
+          }
 
-                        hour2.textContent = `${hour4}:00`
-
-                        pre4 = data.forecast.forecastday[0].hour[hour4].precip_mm;
-
-                    }
-
-
-
-                    let hour8 = hour4 + 4;
-
-                    if (hour8 > 23) {
-                        let aux = hour8 - 23;
-                        hour8 = aux;
-
-                        temp = Math.round(data.forecast.forecastday[1].hour[hour8].temp_c);
-                        temp3.textContent = `${temp}ºC`;
-
-                        img3.src = data.forecast.forecastday[1].hour[hour8].condition.icon;
-
-                        hour3.textContent = `${hour8}:00`;
-
-                        pre8 = pre4 = data.forecast.forecastday[1].hour[hour8].precip_mm;
-
-                    } else {
-
-                        temp = Math.round(data.forecast.forecastday[0].hour[hour8].temp_c);
-                        temp3.textContent = `${temp}ºC`;
-
-                        img3.src = data.forecast.forecastday[0].hour[hour8].condition.icon;
-
-                        hour3.textContent = `${hour8}:00`;
-
-                        pre8 = pre4 = data.forecast.forecastday[0].hour[hour8].precip_mm;
-                    }
-
-
-                    if (preActual >= 0.1 || pre4 >= 0.1 || pre8 >= 0.1) {
-                        llovera.textContent = 'llovera en las proximas horas...'
-                    } else {
-                        llovera.textContent = 'No llovera en las proximas horas...'
-                    }
-
-
-                })
-
-
-
-
-
-
-        })
-
-
-
-    }
+          if (preActual >= 0.1 || pre4 >= 0.1 || pre8 >= 0.1) {
+            llovera.textContent = "Llovera en las proximas horas...";
+          } else {
+            llovera.textContent = "No llovera en las proximas horas...";
+          }
+        });
+    });
+  }
 });
