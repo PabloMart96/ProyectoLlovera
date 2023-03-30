@@ -56,7 +56,6 @@ h1 {
   justify-content: center;
   align-items: center;
   gap: 4rem;
-  margin: 3rem 0rem;
   list-style: none;
 }
 
@@ -73,26 +72,42 @@ li {
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   font-size: 1.2rem;
+  transition: 0.4s;
 }
 
 li:first-child:hover {
   background: rebeccapurple;
   color: whitesmoke;
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
+    -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
 }
 
 li:nth-child(2):hover {
   background: rebeccapurple;
   color: whitesmoke;
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
+    -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
 }
 
 li:nth-child(3):hover {
   background: rebeccapurple;
   color: whitesmoke;
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
+    -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
 }
 
 li img {
   width: 180px;
   height: 180px;
+}
+
+p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 5px -1px 9px rgba(0, 0, 0, 0.8);
 }
 
 #button {
@@ -105,4 +120,10 @@ li img {
   position: relative;
   overflow: hidden;
   transform: translateY(-50%);
+}
+
+@media all and (max-width: 700px) {
+  #cards {
+    flex-direction: column;
+  }
 }
