@@ -41,8 +41,8 @@ ul {
 li {
   color: white;
   position: relative;
-  padding: 20px;
-  width: 200px;
+  padding: 1rem;
+  width: 250px;
   height: 300px;
   background: rgb(29, 28, 28);
   float: left;
