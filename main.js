@@ -22,21 +22,25 @@ button.addEventListener('click', () => {
     let hour2 = document.getElementById('hour4');
     let hour3 = document.getElementById('hour8');
 
+    let inicio = document.getElementById('inicio');
+    let fin = document.getElementById('fin');
+
     let llovera = document.getElementById('llovera');
 
 
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
-            // lon = position.coords.longitude;
-            // lat = position.coords.latitude;
-            lon = -0.1257400
-            lat = 51.5085300
+            lon = position.coords.longitude;
+            lat = position.coords.latitude;
+            // lon = -0.1257400
+            // lat = 51.5085300
             let preActual, pre4, pre8;
 
             document.getElementById('cards').style.visibility = "visible";
 
             const url = `https://api.weatherapi.com/v1/forecast.json?key=61017b0b92844917b28110209232803&q=${lat},${lon}&days=2&lang=es`;
+            console.log(url)
 
             fetch(url)
                 .then(response => response.json())
@@ -121,17 +125,14 @@ button.addEventListener('click', () => {
                         llovera.textContent = 'No llovera en las proximas horas...'
                     }
 
+                    inicio.textContent = data.forecast.forecastday[0].astro.sunrise;
+                    fin.textContent = data.forecast.forecastday[0].astro.sunset;
+
 
                 })
-
-
-
-
+                .catch(error => console.error(error.message));
 
 
         })
-
-
-
     }
 });

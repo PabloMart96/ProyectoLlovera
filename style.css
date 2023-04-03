@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:900");
+
 * {
   margin: 0;
   padding: 0;
@@ -5,8 +7,7 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Playfair Display", "Georgia", serif;
   background: #22c1c3;
   background: -webkit-linear-gradient(to right, #fdbb2d, #22c1c3);
   background: linear-gradient(to right, #fdbb2d, #22c1c3);
@@ -16,6 +17,7 @@ header {
   text-align: center;
   font-size: 2rem;
   width: 100%;
+  height: auto;
   padding: 4rem;
 }
 
@@ -25,7 +27,7 @@ h1 {
 }
 @keyframes tracking-in-contract {
   0% {
-    letter-spacing: 0.6em;
+    letter-spacing: 2rem;
     opacity: 0;
   }
   40% {
@@ -69,13 +71,13 @@ li {
   height: 350px;
   background-color: #9eb9f0;
   color: rgb(95, 45, 122);
-  border-radius: 20px;
+  border-radius: 1.25rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   font-size: 1.2rem;
   transition: 0.4s;
 }
 
-li:first-child:hover {
+li:hover {
   background: rebeccapurple;
   color: whitesmoke;
   transform: scale(0.9, 0.9);
@@ -83,20 +85,17 @@ li:first-child:hover {
     -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
 }
 
-li:nth-child(2):hover {
-  background: rebeccapurple;
-  color: whitesmoke;
-  transform: scale(0.9, 0.9);
-  box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
-    -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
+li:first-child,
+li:last-child {
+  width: 150px;
+  height: 200px;
+  font-size: 0.8rem;
 }
 
-li:nth-child(3):hover {
-  background: rebeccapurple;
-  color: whitesmoke;
-  transform: scale(0.9, 0.9);
-  box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
-    -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
+li:first-child img,
+li:last-child img {
+  width: 50px;
+  height: 50px;
 }
 
 li img {
@@ -105,25 +104,37 @@ li img {
 }
 
 p {
-  font-size: 1.5rem;
+  color: white;
+  font-size: 1.87rem;
   margin-bottom: 2rem;
-  text-shadow: 5px -1px 9px rgba(0, 0, 0, 0.8);
 }
 
 #button {
+  color: #fff;
   font-size: 1.4rem;
-  border: 2px solid white;
-  color: white;
-  border-radius: 50px;
-  padding: 15px 80px;
-  background: transparent;
-  position: relative;
-  overflow: hidden;
-  transform: translateY(-50%);
+  padding: 0.9rem 5rem;
+  border-radius: 3.12rem;
+  background: #318aac;
+  border: 2px solid #318aac;
+  outline: 1px solid;
+  outline-color: rgba(49, 138, 172, 0.4);
+  transition: all 1.3s cubic-bezier(0.22, 1, 0.22, 1);
 }
 
-@media all and (max-width: 700px) {
+#button:hover {
+  box-shadow: inset 0 0 20px rgba(49, 138, 172, 0.5),
+    0 0 20px rgba(49, 138, 172, 0.4);
+  outline-color: rgba(49, 138, 172, 0);
+  outline-offset: 5rem;
+  text-shadow: 1px 1px 6px #fff;
+}
+
+@media all and (max-width: 900px) {
   #cards {
     flex-direction: column;
+  }
+
+  p {
+    text-align: center;
   }
 }
