@@ -8,9 +8,8 @@
 
 body {
   font-family: "Playfair Display", "Georgia", serif;
-  background: #22c1c3;
-  background: -webkit-linear-gradient(to right, #fdbb2d, #22c1c3);
-  background: linear-gradient(to right, #fdbb2d, #22c1c3);
+  background-image: url("images/nubes2.jpg");
+  background-size: cover;
 }
 
 header {
@@ -23,7 +22,7 @@ header {
 
 h1 {
   animation: tracking-in-contract 0.4s linear both;
-  color: rgb(95, 45, 122);
+  color: rgb(255, 255, 255);
 }
 @keyframes tracking-in-contract {
   0% {
@@ -49,7 +48,7 @@ h1 {
 
 #city {
   font-size: 2rem;
-  color: rebeccapurple;
+  color: rgb(255, 255, 255);
 }
 
 #cards {

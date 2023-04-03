@@ -34,8 +34,7 @@ button.addEventListener("click", () => {
     navigator.geolocation.getCurrentPosition((position) => {
       lon = position.coords.longitude;
       lat = position.coords.latitude;
-      // lon = -0.1257400
-      // lat = 51.5085300
+
       let preActual, pre4, pre8;
 
       document.getElementById("cards").style.visibility = "visible";
