@@ -115,7 +115,7 @@ button.addEventListener("click", () => {
           }
 
           if (preActual >= 0.1 || pre4 >= 0.1 || pre8 >= 0.1) {
-            llovera.textContent = "llovera en las proximas horas...";
+            llovera.textContent = "Llovera en las proximas horas...";
           } else {
             llovera.textContent = "No llovera en las proximas horas...";
           }
