@@ -1,53 +1,60 @@
+
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>LloverAPP</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-    <link
-      rel="shortcut icon"
-      href="./images/icons8-weather-96.png"
-      type="image/x-icon"
-    />
-  </head>
 
-  <body>
-    <header>
-      <h1>Proyecto Llovera</h1>
-    </header>
-    <main>
-      <section id="container">
-        <h2 id="city"></h2>
-        <ul id="cards">
-          <li>
-            <h2 id="temp1"></h2>
-            <img src="" alt="current weather" id="img1" />
-            <h3 id="weatherText"></h3>
-            <h3 id="hour"></h3>
-          </li>
-          <li>
-            <h2 id="temp2"></h2>
-            <img src="" alt="4 hours" id="img2" />
-            <h3 id="weatherText2"></h3>
-            <h3 id="hour4"></h3>
-          </li>
-          <li>
-            <h2 id="temp3"></h2>
-            <img src="" alt="8 hours" id="img3" />
-            <h3 id="weatherText3"></h3>
-            <h3 id="hour8"></h3>
-          </li>
-        </ul>
-        <p id="llovera"></p>
-        <form action="#">
-          <input type="button" value="Empezar" id="button" />
-        </form>
-      </section>
-    </main>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+  <link rel="shortcut icon" href="./images/icons8-weather-96.png" type="image/x-icon">
 
-    <script src="./main.js"></script>
-  </body>
+</head>
+
+<body>
+  <header>
+    <h1>Proyecto Llovera</h1>
+  </header>
+  <main>
+
+    <section id="container">
+      <h2 id="city"></h2>
+      <ul id="cards">
+        <li>
+          <h2>Amanecer</h2>
+          <img src="./images/amanecer.png" alt="amanecer">
+          <h3 id="inicio"></h3>
+        </li>
+        <li>
+          <h2 id="temp1"></h2>
+          <img src="" alt="current weather" id="img1">
+          <h3 id="hour"></h3>
+        </li>
+        <li>
+          <h2 id="temp2"></h2>
+          <img src="" alt="4 hours" id="img2">
+          <h3 id="hour4"></h3>
+        </li>
+        <li>
+          <h2 id="temp3"></h2>
+          <img src="" alt="8 hours" id="img3">
+          <h3 id="hour8"></h3>
+        </li>
+        <li>
+          <h2>Anochecer</h2>
+          <img src="./images/noche.png" alt="anochecer">
+          <h3 id="fin"></h3>
+        </li>
+      </ul>
+      <p id="llovera"></p>
+      <form action="#">
+        <input type="button" value="Empezar" id="button">
+      </form>
+    </section>
+  </main>
+
+  <script src="./main.js"></script>
+</body>
+
 </html>
-
