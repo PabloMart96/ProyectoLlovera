@@ -1,4 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,300&display=swap");
+
+
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:900");
+
 * {
   margin: 0;
   padding: 0;
@@ -6,11 +9,18 @@
 }
 
 body {
+
   font-family: "Roboto", sans-serif;
 }
 
 main {
   background-image: url("images/nubes.jpg");
+
+  font-family: "Playfair Display", "Georgia", serif;
+  background: #22c1c3;
+  background: -webkit-linear-gradient(to right, #fdbb2d, #22c1c3);
+  background: linear-gradient(to right, #fdbb2d, #22c1c3);
+
 }
 
 header {
@@ -19,8 +29,30 @@ header {
   text-align: center;
   font-size: 2rem;
   width: 100%;
+  height: auto;
   padding: 4rem;
 }
+
+
+
+h1 {
+  animation: tracking-in-contract 0.4s linear both;
+  color: rgb(95, 45, 122);
+}
+@keyframes tracking-in-contract {
+  0% {
+    letter-spacing: 2rem;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}
+
 
 #container {
   display: flex;
@@ -43,6 +75,7 @@ li {
   position: relative;
   padding: 1rem;
   width: 250px;
+
   height: 300px;
   background: rgb(29, 28, 28);
   float: left;
@@ -89,6 +122,7 @@ li:hover {
   -webkit-transform: scale(1.1);
   -o-transform: scale(1.1);
   transform: scale(1.1);
+
 }
 
 li img {
@@ -97,13 +131,15 @@ li img {
 }
 
 p {
-  font-size: 1.5rem;
+  color: white;
+  font-size: 1.87rem;
   margin-bottom: 2rem;
-  text-shadow: 5px -1px 9px rgba(0, 0, 0, 0.8);
 }
 
 #button {
+  color: #fff;
   font-size: 1.4rem;
+
   border: 2px solid white;
   color: white;
   border-radius: 50px;
@@ -116,6 +152,11 @@ p {
 
 @media all and (max-width: 1024px) {
   ul {
+
     flex-direction: column;
+  }
+
+  p {
+    text-align: center;
   }
 }
