@@ -139,7 +139,11 @@ p {
   }
 }
 
-@media (min-width: 901px) and (max-width: 1300px) {
+@media (min-width: 901px) and (max-width: 1900px) {
+  body {
+    background-size: cover;
+  }
+
   #cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
