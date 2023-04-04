@@ -79,7 +79,7 @@ li {
 li:hover {
   background: rebeccapurple;
   color: whitesmoke;
-  transform: scale(0.9, 0.9);
+  transform: scale(1.2, 1.2);
   box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
     -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
 }
