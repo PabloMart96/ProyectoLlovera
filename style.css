@@ -128,9 +128,33 @@ p {
   text-shadow: 1px 1px 6px #fff;
 }
 
-@media all and (max-width: 900px) {
+@media (max-width: 900px) {
   #cards {
+    display: flex;
     flex-direction: column;
+  }
+
+  p {
+    align-items: center;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1300px) {
+  #cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+  }
+
+  li:first-child {
+    grid-column: 0 / 1;
+    grid-row: 2 / 3;
+  }
+
+  li:last-child {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
   }
 
   p {
