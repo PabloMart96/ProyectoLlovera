@@ -129,6 +129,30 @@ p {
 }
 
 @media all and (max-width: 900px) {
+  body {
+    background-size: cover;
+  }
+  #button {
+    justify-content: center;
+    align-items: center;
+  }
+  #cards {
+    flex-direction: column;
+  }
+
+  p {
+    text-align: center;
+  }
+}
+
+@media all and (max-width: 1900px) {
+  body {
+    background-size: cover;
+  }
+  #button {
+    justify-content: center;
+    align-items: center;
+  }
   #cards {
     flex-direction: column;
   }
