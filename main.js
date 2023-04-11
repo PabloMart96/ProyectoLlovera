@@ -35,7 +35,7 @@ button.addEventListener("click", () => {
       lon = position.coords.longitude;
       lat = position.coords.latitude;
 
-      let preActual, pre4, pre8;
+      let preActual, pre2, pre3, pre4, pre5, pre6, pre7, pre8;
 
       document.getElementById("cards").style.visibility = "visible";
 
@@ -56,9 +56,30 @@ button.addEventListener("click", () => {
           img1.src = data.current.condition.icon;
           weatherText.textContent = data.current.condition.text;
           hour1.textContent = `${hour}:00`;
-
+          //Precipitacion Actual
           preActual = data.current.precip_mm;
-
+          console.log(preActual);
+          //Precipitacion 2 hora
+          let hourTwo = hour + 2;
+          if (hourTwo > 23) {
+            let aux = hourTwo - 23;
+            hourTwo = aux;
+            pre2 = data.forecast.forecastday[1].hour[hourTwo].precip_mm;
+          } else {
+            pre2 = data.forecast.forecastday[0].hour[hourTwo].precip_mm;
+          }
+          console.log(pre2);
+          //Precipitacion 3 hora
+          let hourThree = hour + 3;
+          if (hourThree > 23) {
+            let aux = hourThree - 23;
+            hourThree = aux;
+            pre3 = data.forecast.forecastday[1].hour[hourThree].precip_mm;
+          } else {
+            pre3 = data.forecast.forecastday[0].hour[hourThree].precip_mm;
+          }
+          console.log(pre3);
+          //Precipitacion 4 hora
           let hour4 = hour + 4;
 
           if (hour4 > 23) {
@@ -85,7 +106,38 @@ button.addEventListener("click", () => {
 
             pre4 = data.forecast.forecastday[0].hour[hour4].precip_mm;
           }
-
+          console.log(pre4);
+          //Precipitacion 5 hora
+          let hour5 = hour + 5;
+          if (hour5 > 23) {
+            let aux = hour5 - 23;
+            hour5 = aux;
+            pre5 = data.forecast.forecastday[1].hour[hour5].precip_mm;
+          } else {
+            pre5 = data.forecast.forecastday[0].hour[hour5].precip_mm;
+          }
+          console.log(pre5);
+          //Precipitacion 6 hora
+          let hour6 = hour + 6;
+          if (hour6 > 23) {
+            let aux = hour6 - 23;
+            hour6 = aux;
+            pre6 = data.forecast.forecastday[1].hour[hour6].precip_mm;
+          } else {
+            pre6 = data.forecast.forecastday[0].hour[hour6].precip_mm;
+          }
+          console.log(pre6);
+          //Precipitacion 7 hora
+          let hour7 = hour + 7;
+          if (hour7 > 23) {
+            let aux = hour7 - 23;
+            hour7 = aux;
+            pre7 = data.forecast.forecastday[1].hour[hour7].precip_mm;
+          } else {
+            pre7 = data.forecast.forecastday[0].hour[hour7].precip_mm;
+          }
+          console.log(pre7);
+          //Precipitacion 8 hora
           let hour8 = hour4 + 4;
 
           if (hour8 > 23) {
@@ -112,8 +164,18 @@ button.addEventListener("click", () => {
 
             pre8 = data.forecast.forecastday[0].hour[hour8].precip_mm;
           }
-
-          if (preActual >= 0.1 || pre4 >= 0.1 || pre8 >= 0.1) {
+          console.log(pre8);
+          //Validacion Lluvia
+          if (
+            preActual >= 0.1 ||
+            pre2 >= 0.1 ||
+            pre3 >= 0.1 ||
+            pre4 >= 0.1 ||
+            pre5 >= 0.1 ||
+            pre6 >= 0.1 ||
+            pre7 >= 0.1 ||
+            pre8 >= 0.1
+          ) {
             llovera.textContent = "Llovera en las proximas horas...";
           } else {
             llovera.textContent = "No llovera en las proximas horas...";
@@ -126,3 +188,4 @@ button.addEventListener("click", () => {
     });
   }
 });
+
