@@ -58,7 +58,6 @@ button.addEventListener("click", () => {
           hour1.textContent = `${hour}:00`;
           //Precipitacion Actual
           preActual = data.current.precip_mm;
-          console.log(preActual);
           //Precipitacion 2 hora
           let hourTwo = hour + 2;
           if (hourTwo > 23) {
@@ -68,7 +67,7 @@ button.addEventListener("click", () => {
           } else {
             pre2 = data.forecast.forecastday[0].hour[hourTwo].precip_mm;
           }
-          console.log(pre2);
+
           //Precipitacion 3 hora
           let hourThree = hour + 3;
           if (hourThree > 23) {
@@ -78,7 +77,7 @@ button.addEventListener("click", () => {
           } else {
             pre3 = data.forecast.forecastday[0].hour[hourThree].precip_mm;
           }
-          console.log(pre3);
+
           //Precipitacion 4 hora
           let hour4 = hour + 4;
 
@@ -106,7 +105,6 @@ button.addEventListener("click", () => {
 
             pre4 = data.forecast.forecastday[0].hour[hour4].precip_mm;
           }
-          console.log(pre4);
           //Precipitacion 5 hora
           let hour5 = hour + 5;
           if (hour5 > 23) {
@@ -116,7 +114,7 @@ button.addEventListener("click", () => {
           } else {
             pre5 = data.forecast.forecastday[0].hour[hour5].precip_mm;
           }
-          console.log(pre5);
+
           //Precipitacion 6 hora
           let hour6 = hour + 6;
           if (hour6 > 23) {
@@ -126,7 +124,7 @@ button.addEventListener("click", () => {
           } else {
             pre6 = data.forecast.forecastday[0].hour[hour6].precip_mm;
           }
-          console.log(pre6);
+
           //Precipitacion 7 hora
           let hour7 = hour + 7;
           if (hour7 > 23) {
@@ -136,7 +134,7 @@ button.addEventListener("click", () => {
           } else {
             pre7 = data.forecast.forecastday[0].hour[hour7].precip_mm;
           }
-          console.log(pre7);
+
           //Precipitacion 8 hora
           let hour8 = hour4 + 4;
 
@@ -164,7 +162,6 @@ button.addEventListener("click", () => {
 
             pre8 = data.forecast.forecastday[0].hour[hour8].precip_mm;
           }
-          console.log(pre8);
           //Validacion Lluvia
           if (
             preActual >= 0.1 ||
