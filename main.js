@@ -100,7 +100,7 @@ button.addEventListener("click", () => {
               data.forecast.forecastday[1].hour[hour8].condition.text;
             hour3.textContent = `${hour8}:00`;
 
-            pre8 = pre4 = data.forecast.forecastday[1].hour[hour8].precip_mm;
+            pre8 = data.forecast.forecastday[1].hour[hour8].precip_mm;
           } else {
             temp = Math.round(data.forecast.forecastday[0].hour[hour8].temp_c);
             temp3.textContent = `${temp}ºC`;
@@ -110,7 +110,7 @@ button.addEventListener("click", () => {
               data.forecast.forecastday[0].hour[hour8].condition.text;
             hour3.textContent = `${hour8}:00`;
 
-            pre8 = pre4 = data.forecast.forecastday[0].hour[hour8].precip_mm;
+            pre8 = data.forecast.forecastday[0].hour[hour8].precip_mm;
           }
 
           if (preActual >= 0.1 || pre4 >= 0.1 || pre8 >= 0.1) {
